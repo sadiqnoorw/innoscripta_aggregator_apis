@@ -18,6 +18,8 @@ use Guardian\GuardianAPI;
 use App\Repositories\ArticleRepositoryInterface;
 use App\Repositories\ArticleRepository;
 
+use App\Repositories\Auth\UserPreferencesRepositoryInterface;
+use App\Repositories\Auth\UserPreferencesRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -37,6 +39,10 @@ class AppServiceProvider extends ServiceProvider
 
         // Bind the GuardianAPISourceRepositoryInterface to the concrete GuardianAPISourceRepository class
         $this->app->bind(GuardianAPISourceRepositoryInterface::class, GuardianAPISourceRepository::class);
+
+        // Bind the UserPreferencesRepositoryInterface to the concrete UserPreferencesRepository class
+        $this->app->bind(UserPreferencesRepositoryInterface::class, UserPreferencesRepository::class);
+
 
         // Bind NewsApi to a singleton and pass the API key to the constructor
         $this->app->singleton(NewsApi::class, function ($app) {
