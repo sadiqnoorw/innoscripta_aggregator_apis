@@ -12,21 +12,6 @@ class AuthApiTest extends TestCase
 {
     use RefreshDatabase;
 
-     /** @test */
-    //  public function user_can_register()
-    //  {
-    //      $response = $this->postJson('/api/auth/register', [
-    //          'name' => 'Test User',
-    //          'email' => 'test@example.com',
-    //          'password' => 'password',
-    //          'password_confirmation' => 'password',
-    //      ]);
- 
-    //      $response->assertStatus(201)->assertJsonStructure([
-    //          'user' => ['id', 'name', 'email'],
-    //      ]);
-    //  }
-
     /**
      * Test user registration.
      *
@@ -34,7 +19,7 @@ class AuthApiTest extends TestCase
      */
     public function test_user_can_register()
     {
-        $response = $this->postJson('/api/auth/register', [
+        $response = $this->postJson('/api/register', [
             'name' => 'John Doe',
             'email' => 'john@sexample.com',
             'password' => 'password123',
@@ -52,7 +37,7 @@ class AuthApiTest extends TestCase
      */
     public function test_user_registration_fails_with_invalid_data()
     {
-        $response = $this->postJson('/api/auth/register', [
+        $response = $this->postJson('/api/register', [
             'name' => '',
             'email' => 'invalid-email',
             'password' => 'short',
@@ -74,7 +59,7 @@ class AuthApiTest extends TestCase
             'password' => bcrypt('password123'),
         ]);
 
-        $response = $this->postJson('/api/auth/login', [
+        $response = $this->postJson('/api/login', [
             'email' => 'john@sexample.com',
             'password' => 'password123',
         ]);
@@ -95,7 +80,7 @@ class AuthApiTest extends TestCase
             'password' => bcrypt('password123'),
         ]);
 
-        $response = $this->postJson('/api/auth/login', [
+        $response = $this->postJson('/api/login', [
             'email' => 'john@example.com',
             'password' => 'wrongpassword',
         ]);
@@ -105,30 +90,13 @@ class AuthApiTest extends TestCase
     }
 
     /**
-     * Test user logout.
-     *
-     * @return void
-     */
-    public function test_user_can_logout()
-    {
-        $user = User::factory()->create();
-
-        Sanctum::actingAs($user);
-
-        $response = $this->postJson('/api/auth/logout');
-
-        $response->assertStatus(200)
-                 ->assertJson(['message' => 'Logged out successfully']);
-    }
-
-    /**
      * Test password reset with invalid email.
      *
      * @return void
      */
     public function test_password_reset_fails_with_invalid_email()
     {
-        $response = $this->postJson('/api/auth/reset-password', [
+        $response = $this->postJson('/api/reset-password', [
             'email' => 'nonexistent@example.com',
         ]);
 

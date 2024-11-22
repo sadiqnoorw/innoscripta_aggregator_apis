@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NewsSourceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +16,11 @@ use App\Http\Controllers\Controller;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/fetchNews', [NewsSourceController::class, 'fetchNews']);
+Route::get('/display', [NewsSourceController::class, 'index']);
 
-Route::get('/', function () {
+// Route::get('/', function () {
 
-    return view('welcome');
-});
+//     return view('welcome');
+// });
