@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f660be8ad871733b205c3c7b411e9ce3",
+    "content-hash": "9733ee2e8662e81af90e7c5af40811fd",
     "packages": [
         {
             "name": "brick/math",
@@ -1053,6 +1053,53 @@
                 }
             ],
             "time": "2023-12-03T19:50:20+00:00"
+        },
+        {
+            "name": "jcobhams/newsapi",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jcobhams/newsapi-php.git",
+                "reference": "5961d7e1b1493fe7493d278bada2dba1f5481471"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jcobhams/newsapi-php/zipball/5961d7e1b1493fe7493d278bada2dba1f5481471",
+                "reference": "5961d7e1b1493fe7493d278bada2dba1f5481471",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "6 - 7",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "6 - 9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "jcobhams\\NewsApi\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Joseph Cobhams",
+                    "email": "jcobhams@gmail.com"
+                }
+            ],
+            "description": "A PHP client for NewsApi",
+            "keywords": [
+                "newsapi"
+            ],
+            "support": {
+                "issues": "https://github.com/jcobhams/newsapi-php/issues",
+                "source": "https://github.com/jcobhams/newsapi-php/tree/v1.0.1"
+            },
+            "time": "2023-02-19T16:24:49+00:00"
         },
         {
             "name": "laravel/framework",
@@ -2303,6 +2350,62 @@
                 "source": "https://github.com/nikic/PHP-Parser/tree/v5.3.1"
             },
             "time": "2024-10-08T18:51:32+00:00"
+        },
+        {
+            "name": "nonsoniyi/the-guardian-api-client",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/niyiomotoso/the-guardian-api-php-client.git",
+                "reference": "0ed9a81f4ad7734e453088267225806a8d319b70"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/niyiomotoso/the-guardian-api-php-client/zipball/0ed9a81f4ad7734e453088267225806a8d319b70",
+                "reference": "0ed9a81f4ad7734e453088267225806a8d319b70",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.0",
+                "php": "^7.4 || ^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Guardian\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nonso Mgbechi",
+                    "email": "mgbechinonso@gmail.com",
+                    "homepage": "https://kingdageek.github.io"
+                },
+                {
+                    "name": "Omoniyi Omotoso",
+                    "email": "omoniyiomotoso@gmail.com",
+                    "homepage": "https://niyiomotoso.github.io"
+                }
+            ],
+            "description": "PHP wrapper for the guardian APIs",
+            "homepage": "https://github.com/niyiomotoso/the-guardian-api-php-client",
+            "keywords": [
+                "The Guardian",
+                "api",
+                "wrapper"
+            ],
+            "support": {
+                "issues": "https://github.com/niyiomotoso/the-guardian-api-php-client/issues",
+                "source": "https://github.com/niyiomotoso/the-guardian-api-php-client/tree/v1.0.4"
+            },
+            "time": "2024-05-14T21:04:44+00:00"
         },
         {
             "name": "nunomaduro/termwind",
