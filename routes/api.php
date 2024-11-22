@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\NewsSourceController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\UserPreferencesController;
 
 
 /*
@@ -18,24 +19,23 @@ use App\Http\Controllers\ArticleController;
 |
 */
 
-
-Route::prefix('auth')->group(function () {
-    
-    Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
-  
-
+Route::prefix('auth')->middleware(['auth:sanctum', 'throttle:api'])->group(function () {
+    Route::post('logout', [AuthController::class, 'logout']);
+    Route::post('preferences', [UserPreferencesController::class, 'setPreferences']);
+    Route::get('preferences', [UserPreferencesController::class, 'getPreferences']);
+    Route::get('personalized-news', [UserPreferencesController::class, 'getPersonalizedNewsFeed']);
 });
 
-Route::post('register', [AuthController::class, 'register']);
-Route::post('login', [AuthController::class, 'login']);
-Route::post('reset-password', [AuthController::class, 'resetPassword']);
-Route::get('/fetchNews', [NewsSourceController::class, 'fetchNews']);
+Route::middleware('throttle:fetch-actions')->group(function () {
+    Route::get('/fetchNews', [NewsSourceController::class, 'fetchNews']);
+    Route::get('articles', [ArticleController::class, 'index']);
+    Route::get('articles/{id}', [ArticleController::class, 'showById']);
+    Route::get('articles/slug/{slug}', [ArticleController::class, 'showBySlug']);
+});
 
-// Route to fetch articles with filters and pagination
-Route::get('articles', [ArticleController::class, 'index']);
 
-// Route to fetch a single article by ID
-Route::get('articles/{id}', [ArticleController::class, 'showById']);
-
-// Route to fetch a single article by slug
-Route::get('articles/slug/{slug}', [ArticleController::class, 'showBySlug']);
+Route::middleware('throttle:auth-actions')->group(function () {
+    Route::post('register', [AuthController::class, 'register']);
+    Route::post('login', [AuthController::class, 'login']);
+    Route::post('reset-password', [AuthController::class, 'resetPassword']);
+});
