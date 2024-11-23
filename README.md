@@ -34,10 +34,8 @@ If you don't have Docker, you can set up the project manually using the followin
 #### Prerequisites:
 
  - PHP: >=8.1
- - Composer: >=2.0
  - Laravel Framework: >=10.x
  - Database: MySQL (preferred) or SQLite
- - Node.js: (Optional for frontend or asset management)
 
 ## Manual Setup Instructions
 
