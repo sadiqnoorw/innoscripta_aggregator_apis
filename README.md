@@ -96,7 +96,7 @@ Fetch news data manually by calling the fetchNews endpoint.
 
 ***Endpoint:***
 ```bash
-   GET /fetchNews
+   GET /api/fetchNews
 ```
 
 ## Access Application API Endpoints And Documentation
@@ -115,7 +115,7 @@ To make testing the API easier, a Postman collection is provided in the reposito
 
 | Method | Endpoint | Description |
 | :---  |     :---:       |          ---:      |
-| POST  | api/register       | User registration  | 
+| POST  | /api/register       | User registration  | 
 
 #### Parameters post in body like:
 ```bash
@@ -130,7 +130,7 @@ To make testing the API easier, a Postman collection is provided in the reposito
 
 | Method | Endpoint | Description |
 | :---  |     :---:       |          ---:      |
-| POST  | api/login          | User login         | 
+| POST  | /api/login          | User login         | 
 
 #### Parameters post in body like:
 ```bash
@@ -144,7 +144,7 @@ To make testing the API easier, a Postman collection is provided in the reposito
 
 | Method | Endpoint | Description |
 | :---  |     :---:       |          ---:      |
-| POST	| /apireset-password |	Password reset     |
+| POST	| /api/reset-password |	Password reset     |
 
 #### Parameters post in body like:
 ```bash
@@ -159,14 +159,14 @@ To make testing the API easier, a Postman collection is provided in the reposito
 
 | Method | Endpoint              | Description         |
 | :---   |     :---:             |          ---:       |
-|  GET   | api/fetchNews            | Fetch raw news data |
-|  GET   | api/articles/{id}        | Fetch a single article by ID    |
-|  GET   | api/articles/slug/{slug} | Fetch an article by slug|
+|  GET   | /api/fetchNews            | Fetch raw news data |
+|  GET   | /api/articles/{id}        | Fetch a single article by ID    |
+|  GET   | /api/articles/slug/{slug} | Fetch an article by slug|
 
 #### Fetch all articles (with filters and pagination):
 | Method | Endpoint              | Description         |
 | :---   |     :---:             |          ---:       |
-|  GET   | api/articles             | Retrieve articles with pagination |
+|  GET   | /api/articles             | Retrieve articles with pagination |
 
 #### Query Parameters like:
 ```bash
@@ -177,15 +177,15 @@ To make testing the API easier, a Postman collection is provided in the reposito
 
 | Method | Endpoint                | Description                |
 | :---   |     :---:               |          ---:              |
-| POST	 | api/auth/preferences	   | Save user preferences      |
-| POST	 | api/auth/logout	           | Logout the user            |
-| GET	 | api/auth/personalized-news | Get personalized news feed |
+| POST	 | /api/auth/preferences	   | Save user preferences      |
+| POST	 | /api/auth/logout	           | Logout the user            |
+| GET	 | /api/auth/personalized-news | Get personalized news feed |
 
 
 #### User Preferences (Authenticated):
 | Method | Endpoint              | Description         |
 | :---   |     :---:             |          ---:       |
-| GET    |	api/auth/preferences	   | Retrieve user preferences  |
+| GET    |	/api/auth/preferences	   | Retrieve user preferences  |
 
 #### Parameters post in body like:
 ```bash
