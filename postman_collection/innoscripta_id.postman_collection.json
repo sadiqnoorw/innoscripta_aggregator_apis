@@ -43,7 +43,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\": \"john@exampled.com\",\n    \"password\": \"password\"\n}"
+					"raw": "{\n  \"email\": \"john@exampled.com\",\n  \"password\": \"password\"\n}"
 				},
 				"url": "{{base_url}}/api/login"
 			},
@@ -55,7 +55,7 @@
 				"auth": {
 					"type": "bearer",
 					"bearer": {
-						"token": "1|uEAyYQW3wA6Z5FAgqVPFiFjdDh8cEZMR5htWiyAoc4b97bfa"
+						"token": "1|KxVTfOQhU8G98kYcBtyjkN2tQD75RNMHqm6CJznyd9f0b944"
 					}
 				},
 				"method": "POST",
@@ -115,7 +115,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/api/articles?keyword=technology&category=general&source=new_api&date=&per_page=10",
+					"raw": "{{base_url}}/api/articles?keyword=technology&category=&source=&date=&per_page=10",
 					"host": [
 						"{{base_url}}"
 					],
@@ -130,11 +130,11 @@
 						},
 						{
 							"key": "category",
-							"value": "general"
+							"value": ""
 						},
 						{
 							"key": "source",
-							"value": "new_api"
+							"value": ""
 						},
 						{
 							"key": "date",
@@ -148,6 +148,86 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "preferred news by sources and categories",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "1|gAcL05MvoisPbiZs2AKLDH1xs0YfZv8EYdYYA0sU90689c5b"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"preferred_sources\": [\"guardian_api\", \"new_api\"],\n  \"preferred_categories\": [\"Lifestyle\", \"News\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{base_url}}/api/auth/preferences"
+			},
+			"response": []
+		},
+		{
+			"name": "Display User store Preferences",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "1|gAcL05MvoisPbiZs2AKLDH1xs0YfZv8EYdYYA0sU90689c5b"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "{{base_url}}/api/auth/preferences"
+			},
+			"response": []
+		},
+		{
+			"name": "Display Personalized News",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "1|gAcL05MvoisPbiZs2AKLDH1xs0YfZv8EYdYYA0sU90689c5b"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "{{base_url}}/api/auth/personalized-news"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": {}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }

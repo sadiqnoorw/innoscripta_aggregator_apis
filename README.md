@@ -101,6 +101,11 @@ Fetch news data manually by calling the fetchNews endpoint.
 
 ## Access Application API Endpoints And Documentation
 
+### swaggerhub Collection
+
+```bash
+    https://app.swaggerhub.com/apis/sadiqpk33/innoscripta_id/1.0.0
+```
 ### Postman Collection
 To make testing the API easier, a Postman collection is provided in the repository. You can find it in the following path:
 
