@@ -1,0 +1,233 @@
+{
+	"info": {
+		"_postman_id": "c8ca4437-1ff8-4861-9d46-6eea1bedccf9",
+		"name": "innoscripta_id",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "18279834",
+		"_collection_link": "https://galactic-escape-485828.postman.co/workspace/New-Team-Workspace~fc3c9dcd-4a9f-4f32-a214-26562f0693d1/collection/18279834-c8ca4437-1ff8-4861-9d46-6eea1bedccf9?action=share&source=collection_link&creator=18279834"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@exampled.com\",\n  \"password\": \"password\",\n  \"password_confirmation\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{base_url}}/api/register"
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"john@exampled.com\",\n    \"password\": \"password\"\n}"
+				},
+				"url": "{{base_url}}/api/login"
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "1|KxVTfOQhU8G98kYcBtyjkN2tQD75RNMHqm6CJznyd9f0b944"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"url": "{{base_url}}/api/auth/logout"
+			},
+			"response": []
+		},
+		{
+			"name": "reset-password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"john@exampled.com\",\n  \"password\": \"password\",\n  \"password_confirmation\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{base_url}}/api/reset-password"
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch News",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{base_url}}/api/fetchNews"
+			},
+			"response": []
+		},
+		{
+			"name": "single article by slug",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{base_url}}/api/articles/slug/abc-news"
+			},
+			"response": []
+		},
+		{
+			"name": "Single article by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{base_url}}/api/articles/1"
+			},
+			"response": []
+		},
+		{
+			"name": "filtering articles by keyword, date, category, and source",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/articles?keyword=technology&category=general&source=new_api&date=&per_page=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "keyword",
+							"value": "technology"
+						},
+						{
+							"key": "category",
+							"value": "general"
+						},
+						{
+							"key": "source",
+							"value": "new_api"
+						},
+						{
+							"key": "date",
+							"value": ""
+						},
+						{
+							"key": "per_page",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "preferred news by sources and categories",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "1|gAcL05MvoisPbiZs2AKLDH1xs0YfZv8EYdYYA0sU90689c5b"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"preferred_sources\": [\"guardian_api\", \"new_api\"],\n    \"preferred_categories\": [\"Lifestyle\", \"News\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{base_url}}/api/auth/preferences"
+			},
+			"response": []
+		},
+		{
+			"name": "Display User store Preferences",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "1|gAcL05MvoisPbiZs2AKLDH1xs0YfZv8EYdYYA0sU90689c5b"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "{{base_url}}/api/auth/preferences"
+			},
+			"response": []
+		},
+		{
+			"name": "Display Personalized News",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "1|gAcL05MvoisPbiZs2AKLDH1xs0YfZv8EYdYYA0sU90689c5b"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "{{base_url}}/api/auth/personalized-news"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": {}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
